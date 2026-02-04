@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>💌 A Special Message</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ffd6e0, #fff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.envelope {
+  width: 320px;
+  height: 220px;
+  background: #ff4d6d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.message {
+  display: none;
+  text-align: center;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 16px;
+  margin: 15px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: #28a745;
+  color: white;
+}
+
+#noBtn {
+  background: #dc3545;
+  color: white;
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope" onclick="openEnvelope()">
+  📩 Click to open
+</div>
+
+<div class="message" id="message">
+  <h2>Do you like this surprise? 😊</h2>
+  <button id="yesBtn" onclick="yesClicked()">Yes</button>
+  <button id="noBtn">No</button>
+</div>
+
+<script>
+function openEnvelope() {
+  document.querySelector('.envelope').style.display = 'none';
+  document.getElementById('message').style.display = 'block';
+}
+
+function yesClicked() {
+  alert("Yayyy 🎉 I knew it!");
+}
+
+const noBtn = document.getElementById("noBtn");
+
+noBtn.addEventListener("mouseenter", () => {
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 50);
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+</script>
+
+</body>
+</html>
